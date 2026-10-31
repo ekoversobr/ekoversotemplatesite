@@ -116,3 +116,4 @@ if (Object.keys(attribution).length) {
     sessionStorage.setItem("eko_campaign_attribution", JSON.stringify(attribution));
   } catch (_) {}
 }
+acessibilidade.js
