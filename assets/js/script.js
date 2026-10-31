@@ -111,9 +111,52 @@ const attribution = {};
 ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid", "gbraid", "wbraid"].forEach((key) => {
   if (params.has(key)) attribution[key] = params.get(key);
 });
+
+```javascript
+// Botão flutuante do WhatsApp — Eko Verso Digital
+(() => {
+  const numero = "5583996224306";
+  const mensagem = "Olá! Vim pelo site da Eko Verso Digital e gostaria de mais informações.";
+
+  const botao = document.createElement("a");
+  botao.href = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+  botao.target = "_blank";
+  botao.rel = "noopener noreferrer";
+  botao.setAttribute("aria-label", "Conversar pelo WhatsApp");
+  botao.innerHTML = "☏ <span>Fale conosco</span>";
+
+  Object.assign(botao.style, {
+    position: "fixed",
+    right: "22px",
+    bottom: "22px",
+    zIndex: "9999",
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+    padding: "14px 20px",
+    background: "#20b95a",
+    color: "#ffffff",
+    borderRadius: "50px",
+    textDecoration: "none",
+    fontSize: "16px",
+    fontWeight: "bold",
+    boxShadow: "0 4px 14px rgba(0,0,0,.25)"
+  });
+
+  botao.addEventListener("mouseenter", () => {
+    botao.style.transform = "translateY(-2px)";
+  });
+
+  botao.addEventListener("mouseleave", () => {
+    botao.style.transform = "translateY(0)";
+  });
+
+  document.body.appendChild(botao);
+})();
+```
+
 if (Object.keys(attribution).length) {
   try {
     sessionStorage.setItem("eko_campaign_attribution", JSON.stringify(attribution));
   } catch (_) {}
 }
-acessibilidade.js
