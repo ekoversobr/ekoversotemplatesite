@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+# Revisar após definir domínio e estratégia de indexação.
