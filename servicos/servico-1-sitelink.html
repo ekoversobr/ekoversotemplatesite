@@ -1,57 +1,125 @@
 <!doctype html>
+
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Criação de sites profissionais, responsivos e orientados à conversão para empresas e negócios locais.">
+  <meta name="description" content="Solicite um orçamento para criação de sites profissionais com a Eko Verso Digital.">
   <meta name="theme-color" content="#101b35">
-  <title>Criação de Sites Profissionais | Eko Verso Digital</title>
+  <title>Solicitar orçamento — Criação de Sites | Eko Verso Digital</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/styles.css">
   <style>
-    .service-detail-list{max-width:850px;margin:0 auto;padding-left:1.4rem;line-height:1.8;color:#526078}
-    .service-detail-list li{padding:.35rem 0}
-    .service-detail h2{color:#101b35}
-    .service-faq-wrap{max-width:850px;margin:0 auto}
-    .service-faq{padding:18px 0;border-bottom:1px solid #dbe2ef;color:#24324d}
-    .service-faq summary{font-weight:700;cursor:pointer}
-    .service-faq p{color:#526078;line-height:1.7;margin:12px 0 0}
-    .service-breadcrumb{font-size:13px;color:#65728a;margin-bottom:22px}
-    .service-breadcrumb a{color:#4d78ff}
-    .service-detail-hero{padding-top:70px;padding-bottom:55px}
-    .service-detail-hero h1{max-width:900px}
-    .service-detail-hero .hero-text{max-width:760px}
-    @media(max-width:600px){.service-detail-hero{padding-top:45px;padding-bottom:35px}}
+    .sitelink-form-page {
+      min-height: 75vh;
+      padding: 56px 20px 72px;
+    }
+    .sitelink-form-container {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .sitelink-form-heading {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .sitelink-form-heading h1 {
+      margin-bottom: 14px;
+    }
+    .sitelink-form-heading p {
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    .sitelink-form-card {
+      padding: clamp(22px, 5vw, 42px);
+      border: 1px solid rgba(128, 145, 175, .25);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 16px 50px rgba(16, 27, 53, .09);
+    }
+    .sitelink-back {
+      display: inline-block;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+    .sitelink-footer {
+      text-align: center;
+      padding: 22px 16px;
+    }
+    @media (max-width: 600px) {
+      .sitelink-form-page {
+        padding: 35px 16px 48px;
+      }
+    }
   </style>
 </head>
 <body>
-<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-<header class="site-header">
-  <a class="brand" href="../index.html" aria-label="Eko Verso Digital — início"><span class="brand-symbol" aria-hidden="true">eko<span>.</span></span><span class="brand-name">VERSO DIGITAL<small>ESTRATÉGIA · PERFORMANCE · CONVERSÃO</small></span></a>
-  <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
-  <nav class="nav" id="main-nav" aria-label="Navegação principal">
-    <a href="../index.html#solucoes">Soluções</a><a href="../index.html#metodo">Método</a><a href="../index.html#sobre">Sobre</a><a href="../index.html#contato">Contato</a>
-    <a class="button button-small button-primary" href="../index.html#contato">Solicitar diagnóstico ↗</a>
-  </nav>
-</header>
-<main id="conteudo">
-  <section class="page-hero section-wrap service-detail-hero">
-    <p class="service-breadcrumb"><a href="../index.html">Início</a> / <a href="../servicos.html">Serviços</a> / Sites profissionais</p>
-    <p class="eyebrow">Sites profissionais</p>
-    <h1>Um site claro, rápido e preparado para transformar visitas em contatos.</h1>
-    <p class="hero-text">Desenvolvemos páginas que apresentam seu negócio com clareza, facilitam o contato e ajudam seu público a entender qual é o próximo passo.</p>
-    <div class="hero-actions"><a class="button button-primary" href="../index.html#contato">Solicitar diagnóstico ↗</a><a class="button button-ghost" href="../servicos.html">Ver todos os serviços</a></div>
+  <main class="sitelink-form-page">
+    <div class="sitelink-form-container">
+      <a class="sitelink-back" href="../index.html">← Eko Verso Digital</a>
+
+```
+  <header class="sitelink-form-heading">
+    <p class="eyebrow">Criação de sites profissionais</p>
+    <h1>Vamos criar o site do seu negócio?</h1>
+    <p>Preencha o formulário. Você poderá revisar as informações e enviar sua solicitação pelo WhatsApp.</p>
+  </header>
+
+  <section class="sitelink-form-card" aria-label="Solicitação de orçamento para criação de sites">
+    <form id="contact-form">
+      <div class="form-group">
+        <label for="name">Nome completo *</label>
+        <input id="name" name="name" type="text" autocomplete="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">WhatsApp com DDD *</label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(83) 99999-9999" required>
+      </div>
+
+      <div class="form-group">
+        <label for="business">Nome da empresa ou negócio *</label>
+        <input id="business" name="business" type="text" autocomplete="organization" required>
+      </div>
+
+      <div class="form-group">
+        <label for="service">Serviço de interesse *</label>
+        <select id="service" name="service" required>
+          <option value="Criação de sites profissionais" selected>Criação de sites profissionais</option>
+          <option value="Landing page">Landing page</option>
+          <option value="Site institucional">Site institucional</option>
+          <option value="Página para Google Ads">Página para Google Ads</option>
+          <option value="Outro serviço">Outro serviço</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="details">Conte um pouco sobre o que precisa (opcional)</label>
+        <textarea id="details" name="details" rows="4" placeholder="Descreva brevemente seu projeto."></textarea>
+      </div>
+
+      <p id="form-feedback" role="status" aria-live="polite"></p>
+
+      <button class="button button-primary" type="submit" data-cta="solicitar_orcamento_sites">
+        Solicitar orçamento pelo WhatsApp ↗
+      </button>
+
+      <p class="form-note">Seus dados serão usados para responder à sua solicitação.</p>
+    </form>
   </section>
-  <section class="section-wrap section-pad service-detail"><div class="section-heading"><p class="eyebrow">Eko Verso Digital</p><h2>O que podemos construir</h2></div><ul class="service-detail-list"><li>Site institucional para apresentar sua empresa e seus serviços.</li><li>Landing page focada em uma oferta, campanha ou serviço específico.</li><li>Páginas de serviços organizadas para facilitar a navegação e a descoberta no Google.</li><li>Integração de formulários e botões de WhatsApp com mensagens pré-preenchidas.</li></ul></section><section class="section-wrap section-pad service-detail"><div class="section-heading"><p class="eyebrow">Eko Verso Digital</p><h2>O que consideramos no projeto</h2></div><ul class="service-detail-list"><li>Experiência responsiva para celulares, tablets e computadores.</li><li>Estrutura de conteúdo, títulos e descrições relevantes para SEO.</li><li>Chamadas para ação visíveis e caminhos de contato simples.</li><li>Preparação para mensuração de eventos, quando as ferramentas necessárias estiverem configuradas.</li></ul></section><section class="section-wrap section-pad service-detail"><div class="section-heading"><p class="eyebrow">Eko Verso Digital</p><h2>Para quem é indicado</h2></div><ul class="service-detail-list"><li>Negócios locais que precisam apresentar melhor seus serviços.</li><li>Profissionais que querem uma presença digital própria.</li><li>Empresas que anunciam e precisam de uma página alinhada à campanha.</li></ul></section>
-  <section class="section-wrap section-pad">
-    <div class="section-heading"><p class="eyebrow">Dúvidas frequentes</p><h2>Antes de começar</h2></div>
-    <div class="service-faq-wrap"><details class="service-faq"><summary>Um site garante primeiras posições no Google?</summary><p>Não. Um site bem estruturado ajuda a criar uma base técnica e de conteúdo, mas o posicionamento depende de diversos fatores e não pode ser garantido.</p></details><details class="service-faq"><summary>O site pode ter botão de WhatsApp e formulário?</summary><p>Sim. Os recursos são definidos no escopo e precisam ser testados antes da publicação.</p></details></div>
-  </section>
-  <section class="contact-cta"><div class="section-wrap cta-inner"><div><p class="eyebrow">Próximo passo</p><h2>Vamos entender o que seu negócio precisa.</h2></div><a class="button button-primary" href="../index.html#contato">Solicitar diagnóstico ↗</a></div></section>
-</main>
-<footer class="site-footer"><div class="footer-bottom"><small>© <span id="current-year"></span> Eko Verso Digital. Todos os direitos reservados.</small><div><a href="../politica-de-privacidade.html">Política de Privacidade</a><a href="../index.html#contato">Contato</a></div></div></footer>
-<script src="../assets/js/script.js" defer></script>
+</div>
+```
+
+  </main>
+
+  <footer class="sitelink-footer">
+    <small>© <span id="current-year"></span> Eko Verso Digital</small>
+    <p><a href="../politica-de-privacidade.html">Política de Privacidade</a></p>
+  </footer>
+
+  <script src="../assets/js/script.js" defer></script>
+
 </body>
 </html>
