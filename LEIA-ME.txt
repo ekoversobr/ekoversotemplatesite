@@ -1,0 +1,12 @@
+PÁGINAS DE SERVIÇOS — NOMES GENÉRICOS PARA CLONAGEM
+
+Arquivos:
+- servicos/servico-1-sitelink.html — atualmente conteúdo de Criação de Sites
+- servicos/servico-2-sitelink.html — atualmente conteúdo de Google Ads
+- servicos/servico-3-sitelink.html — atualmente conteúdo de Geração de Leads
+- servicos/servico-4-sitelink.html — atualmente conteúdo de Rastreamento de Conversões
+- servicos/servico-5-sitelink.html — página-base para o quinto serviço
+
+Os nomes dos arquivos permanecem genéricos para facilitar a clonagem. Em cada cliente, personalize o título, descrição, texto, links de contato e conteúdo das páginas.
+
+Importante: a página de listagem servicos.html precisa apontar para estes novos nomes. Se quiser que eu prepare a substituição dos links dessa página, posso gerar também o arquivo servicos.html atualizado. O repositório GitHub não foi alterado automaticamente.
