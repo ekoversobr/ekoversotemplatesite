@@ -11,12 +11,11 @@
  */
 
 const EKO_CONFIG = {
-  whatsappNumber: "5583996224306",
-  businessName: "Eko Verso Digital",
-  email: "ekoversobr@gmail.com",
+  whatsappNumber: "",
+  businessName: "Nome do Cliente",
+  email: "",
   gtmContainerId: "",
-  leadsEndpoint:
-    "https://script.google.com/macros/s/AKfycbzJNJm4-tVmYKyOWY7lATkGATZ8XHKfFCBg4qBBljhbtheRTkXt2pi4tjdvDLk8zR4O/exec"
+  leadsEndpoint: ""
 };
 
 /* =========================================
@@ -44,8 +43,7 @@ document.querySelectorAll("[data-whatsapp-link]").forEach((link) => {
 
   const message =
     `Olá! Vim pelo site da ${EKO_CONFIG.businessName} ` +
-    `e gostaria de conversar sobre serviços. ` +
-    `Origem do contato: ${source}.`;
+    `e gostaria de conversar sobre serviços.`;
 
   link.href =
     `https://wa.me/${EKO_CONFIG.whatsappNumber}` +
@@ -278,6 +276,7 @@ if (form) {
       /servico-\d+/i.test(pagePath);
 
     const lead = {
+      // Dados identificáveis são enviados apenas ao endpoint/CRM autorizado do cliente.
       name: name,
       phone: phone,
       business: business,
@@ -336,7 +335,6 @@ if (form) {
 
     trackInteraction("whatsapp_handoff", {
       form_name: "contact_form",
-      service_interest: service,
       page_path: pagePath
     });
 
@@ -347,7 +345,7 @@ if (form) {
      */
 
     try {
-      await sendLeadToSpreadsheet(lead);
+      if (EKO_CONFIG.leadsEndpoint) await sendLeadToSpreadsheet(lead);
     } catch (error) {
       console.error(
         "Não foi possível concluir a requisição ao Apps Script:",
@@ -357,9 +355,9 @@ if (form) {
 
     /* Encaminha para o WhatsApp */
 
-    feedback.textContent =
-      "O WhatsApp será aberto para você revisar e enviar a mensagem. " +
-      "A gravação do contato deve ser confirmada na planilha.";
+    feedback.textContent = EKO_CONFIG.leadsEndpoint
+      ? "O WhatsApp será aberto para você revisar e enviar a mensagem. A gravação precisa ser confirmada no sistema de leads."
+      : "O WhatsApp será aberto para você revisar e enviar a mensagem.";
 
     if (whatsappWindow && !whatsappWindow.closed) {
       whatsappWindow.location.href = whatsappUrl;
