@@ -7,15 +7,15 @@ body{margin:0;min-height:100vh;font-family:Inter,Arial,sans-serif;color:var(--in
 .form-card{width:min(100%,535px);padding:clamp(25px,4vw,42px);border-radius:10px;background:var(--card);box-shadow:0 12px 34px rgba(20,42,75,.2);backdrop-filter:blur(5px)}
 .company-logo{display:block;width:auto;max-width:min(75%,290px);height:76px;object-fit:contain;margin:0 auto 8px}
 .company-name{margin:0 0 25px;text-align:center;color:var(--brand);font-size:clamp(20px,3vw,28px);line-height:1.15;font-weight:800;letter-spacing:-.6px}
-.field{margin:0 0 14px}
-label{display:block;margin:0 0 6px;color:#365783;font-size:13px;font-weight:600}
+.field{margin:0 0 12px}
+label{display:block;margin:0 0 7px;color:#365783;font-size:14px;font-weight:600}
 input{width:100%;min-height:49px;padding:13px 15px;border:1px solid rgba(255,255,255,.4);border-radius:5px;outline:none;background:var(--field);color:white;font:14px Inter,Arial,sans-serif}
 input::placeholder{color:rgba(255,255,255,.72)}
 input:focus{box-shadow:0 0 0 3px rgba(102,197,229,.35);border-color:var(--button)}
-.submit-button{width:100%;min-height:48px;padding:12px 18px;display:flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:7px;background:var(--button);color:white;font:700 14px Inter,Arial,sans-serif;cursor:pointer;transition:filter .15s,transform .15s}
+.submit-button{width:58px;height:52px;padding:12px;display:flex;align-items:center;justify-content:center;margin:0 auto;border:0;border-radius:9px;background:var(--button);color:white;cursor:pointer;transition:filter .15s,transform .15s}
 .whatsapp-icon{width:20px;height:20px;flex:0 0 20px}\n.submit-button:hover{filter:brightness(.96);transform:translateY(-1px)}
 .submit-button:focus-visible{outline:3px solid var(--brand);outline-offset:3px}
-.feedback{min-height:16px;margin:8px 0 0;color:#a42323;font-size:12px}
-.privacy-note{margin:17px 0 0;text-align:center;color:var(--muted);font-size:11px;line-height:1.45}
+.feedback{min-height:0;margin:8px 0 0;color:#a42323;font-size:12px;text-align:center}
+
 @media(max-width:700px){.landing{justify-content:center;padding:20px 14px;background-position:center}.form-card{width:min(100%,460px);padding:27px 22px}.company-logo{height:68px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
