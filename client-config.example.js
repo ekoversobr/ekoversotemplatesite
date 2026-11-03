@@ -7,3 +7,4 @@ window.EKO_CLIENT_CONFIG = {
   gtmContainerId: "",
   leadsEndpoint: ""
 };
+// Copie este arquivo para client-config.js ao configurar o site institucional.
