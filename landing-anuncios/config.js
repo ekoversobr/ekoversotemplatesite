@@ -1,10 +1,11 @@
-/* Configuração desta landing page de teste. Em clientes, substituir pelos dados exclusivos de cada operação. */
+/* TEMPLATE MASTER: preencha estes campos somente na cópia de produção do cliente. */
 window.LANDING_CONFIG = {
-  companyName: "Eko Verso Digital — Teste",
+  companyName: "Nome do Cliente",
   logoPath: "assets/logo-placeholder.svg",
   backgroundPath: "assets/background-placeholder.svg",
-  whatsappDestination: "5583996224306",
-  whatsappMessageTemplate: "Olá. Bom dia! Vi seu anúncio no Google, me chamo {name} e gostaria de mais informações.",
+  whatsappDestination: "",
+  whatsappMessageTemplate: "Olá! Vi o anúncio de {service} e gostaria de mais informações. Meu nome é {name}.",
+  serviceName: "Nome do Serviço",
   primaryColor: "#174f9c",
   buttonColor: "#25D366"
 };
