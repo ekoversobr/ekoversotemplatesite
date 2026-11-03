@@ -15,6 +15,18 @@
   document.documentElement.style.setProperty("--button", config.buttonColor || "#25D366");
   document.documentElement.style.setProperty("--landing-background", 'url("' + (config.backgroundPath || "assets/background-placeholder.svg") + '")');
 
+  // Mantém apenas parâmetros técnicos de atribuição; nunca capture dados pessoais aqui.
+  const allowedParams = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid", "gbraid", "wbraid"];
+  const params = new URLSearchParams(window.location.search);
+  const attribution = {};
+  allowedParams.forEach((key) => {
+    const value = params.get(key);
+    if (value) attribution[key] = value.slice(0, 500);
+  });
+  if (Object.keys(attribution).length) {
+    try { sessionStorage.setItem("landing_attribution", JSON.stringify(attribution)); } catch (_) {}
+  }
+
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     if (feedback) feedback.textContent = "";
@@ -31,15 +43,15 @@
       return;
     }
 
-    const message = "Olá! Encontrei vocês no Google, me chamo " + name + " e gostaria de mais informações.";
+    const message = "Olá! Encontrei vocês e gostaria de mais informações.";
     const whatsappUrl = "https://wa.me/" + destination + "?text=" + encodeURIComponent(message);
 
+    // Evento técnico de encaminhamento. Não significa que a mensagem foi enviada,
+    // que houve conversa, lead qualificado, agendamento ou venda.
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: "whatsapp_form_submit",
-      form_name: "landing_page_ads",
-      company_name: config.companyName || "",
-      whatsapp_destination: destination
+      form_name: "landing_page_ads"
     });
 
     window.location.assign(whatsappUrl);
