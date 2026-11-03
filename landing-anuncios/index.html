@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Solicite informações e agende seu atendimento pelo WhatsApp.">
+<meta name="theme-color" content="#174f9c">
+<title>Agendamento | Eko Verso Digital</title>
+<link rel="stylesheet" href="assets/styles.css">
+<!-- Inserir aqui o código do Google Tag Manager específico da campanha/cliente. -->
+</head>
+<body>
+<main class="landing">
+<section class="form-card" aria-labelledby="company-name">
+<img class="company-logo" id="company-logo" src="assets/logo-placeholder.svg" alt="Logotipo da empresa">
+<h1 class="company-name" id="company-name">Eko Verso Digital</h1>
+<form id="lead-form" novalidate>
+<div class="field">
+<label for="lead-name">Seu nome</label>
+<input id="lead-name" name="name" type="text" autocomplete="name" maxlength="100" placeholder="Digite seu nome" required>
+</div>
+<div class="field">
+<label for="lead-phone">Seu WhatsApp</label>
+<input id="lead-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="(00) 00000-0000" required>
+</div>
+<button class="submit-button" type="submit">AGENDAR PELO WHATSAPP <span aria-hidden="true">→</span></button>
+<p class="feedback" id="form-feedback" role="status" aria-live="polite"></p>
+</form>
+<p class="privacy-note">Ao continuar, você será encaminhado ao nosso WhatsApp.</p>
+</section>
+</main>
+<script src="config.js"></script>
+<script src="assets/script.js" defer></script>
+</body>
+</html>
