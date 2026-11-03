@@ -1,79 +1,75 @@
-# Eko Verso Digital — Template Mestre de Landing Pages
+# Eko Verso Digital — Template Master de Sites & Landing Pages
 
-Modelo-base para criar landing pages de anúncios para clientes da Eko Verso Digital. Projeto estático em HTML, CSS e JavaScript, publicável no GitHub Pages.
+Repositório-base para implantação de presença digital e campanhas de aquisição em clientes. **Separar sempre a página principal do site institucional das landing pages de cada serviço anunciado.**
 
-## Regra principal: um cliente, uma configuração de medição
+## Arquitetura recomendada
 
-Este repositório é um **template**, não uma conta compartilhada de rastreamento. Antes de publicar uma cópia para um cliente, personalize os arquivos e use identificadores próprios:
+### 1. Site principal — presença institucional
+- URL raiz do projeto: `/`
+- Arquivos: `index.html`, `servicos.html`, `servicos/`, política de privacidade e páginas institucionais.
+- Objetivo: apresentar a empresa, explicar soluções, construir confiança e encaminhar para contato ou página de serviço.
+- Não deve ser tratado como destino padrão de todo anúncio de serviço quando uma landing específica for mais relevante.
 
-- GTM: um contêiner por cliente/site (ou por conjunto de sites quando deliberadamente planejado).
-- GA4: propriedade ou fluxo de dados definido para o cliente.
-- Google Ads: ID de conversão e rótulo da ação pertencentes à conta de anúncios daquele cliente.
-- WhatsApp: número de destino correto.
-- Identidade visual: nome, logotipo, cores, textos e política de privacidade.
+### 2. Landing pages — uma página por serviço principal
+- Diretório-modelo: `landing-anuncios/`
+- Cada serviço/cliente terá sua própria cópia independente, com página, configuração e identificadores próprios.
+- Exemplo de estrutura depois de clonar:
+  ```
+  campanhas/
+    implante-dentario/
+      index.html
+      config.js
+      assets/
+    sedacao-consciente/
+      index.html
+      config.js
+      assets/
+    odontopediatria/
+      index.html
+      config.js
+      assets/
+  ```
+- Cada URL deve corresponder a um único serviço, uma promessa/descrição comprovável, uma chamada principal e o WhatsApp/caminho de contato daquele cliente.
+- Usar sitelinks para outras páginas úteis, não criar cópias quase idênticas sem conteúdo específico.
+- Para cada serviço, definir UTMs e nomear evento/relatório de forma consistente. Manter o mesmo esquema de eventos; segmentar com `page_path`, `page_location` ou parâmetro não sensível `service_slug`.
 
-**Nunca publique os IDs de GTM, GA4 ou Google Ads de um cliente em outro cliente.** Não coloque senhas, tokens, chaves privadas ou credenciais neste repositório.
+## Separação por cliente
+- Manter o template master neutro, sem IDs reais, dados de contato de clientes ou campanhas ativas.
+- Criar clone/repositório de produção para cada cliente.
+- Não usar o GTM/GA4/Ads de um cliente em outro.
+- A conta de anúncio, o domínio e os dados de leads devem pertencer/controlar o cliente. A agência recebe acesso de gestor.
+- Não guardar senhas, tokens, segredos, dados pessoais ou dados clínicos em arquivos, URLs ou dataLayer.
 
-## Estrutura da landing page
+## Rastreamento e significado dos eventos
+Eventos mínimos sugeridos:
+- `page_view`: visita à página.
+- `cta_click`: clique em uma chamada.
+- `whatsapp_click`: clique em link direto de WhatsApp.
+- `whatsapp_handoff`: formulário validado que prepara/encaminha uma mensagem ao WhatsApp.
+- `lead_received`: só pode ser disparado após confirmação de recebimento pelo endpoint/CRM.
+- `qualified_lead`, `appointment_scheduled`, `appointment_attended`, `purchase`: resultado comercial, idealmente integrado/importado do CRM e sem dados sensíveis.
 
-- `landing-anuncios/index.html`: página da campanha.
-- `landing-anuncios/config.js`: personalização do cliente.
-- `landing-anuncios/assets/script.js`: validação e encaminhamento ao WhatsApp.
-- `landing-anuncios/assets/styles.css`: estilos responsivos.
+**Não tratar clique ou encaminhamento para WhatsApp como mensagem enviada, conversa, lead qualificado, agendamento ou venda.** O formulário da landing atual abre o WhatsApp; não é um CRM e não confirma que a mensagem foi enviada.
 
-## Instalar o GTM em uma cópia de cliente
+## Publicação — checklist
+1. Clonar o repositório para um projeto de produção separado do master.
+2. Personalizar identidade, conteúdo e página específica do serviço.
+3. Definir o WhatsApp e testar em celular e computador.
+4. Inserir ID GTM próprio nos dois pontos do snippet (ou remover o snippet e usar outra implementação deliberada, nunca duplicada).
+5. Configurar tags, acionadores e variáveis no GTM; o snippet sozinho não cria conversões.
+6. Configurar GA4 e conversões Google Ads do próprio cliente.
+7. Validar Preview/Tag Assistant, DebugView e teste de formulário/WhatsApp.
+8. Confirmar que nenhum ID de outro cliente foi copiado.
+9. Revisar política de privacidade, consentimento e coleta de dados.
+10. Registrar evidência e liberar a URL para campanhas somente após validação.
 
-1. Crie um contêiner Web no Google Tag Manager para o cliente.
-2. Abra `landing-anuncios/index.html`.
-3. Substitua o marcador `GTM-COLOQUE_O_ID_DO_CLIENTE` pelo ID do contêiner daquele cliente, tanto no código do `<head>` quanto no `<noscript>`.
-4. Não inclua outro snippet GTM na mesma página.
-5. Publique e valide com o modo **Visualizar** do GTM/Tag Assistant.
+## Estado atual do projeto
+- O repositório master contém site institucional e a pasta `landing-anuncios`.
+- A landing atual na branch `main` contém configurações do piloto Eko Clínica (GTM `GTM-T3CRR3MD`, WhatsApp de teste Eko Verso). **Não usar esta versão publicada como template neutro nem para veicular anúncios de clientes sem separar e substituir as configurações.**
+- A página institucional contém WhatsApp e Apps Script ligados à Eko Verso Digital. Antes de clonar, separar e parametrizar esses dados e auditar o destino dos leads.
+- A política de privacidade é um rascunho e deve ser revisada para o tratamento real de cada cliente.
 
-No GTM, configure a tag base de Google/GA4 e os acionadores/eventos necessários. A instalação do snippet, sozinha, não cria conversões: tags e acionadores ainda precisam ser configurados e testados no contêiner.
+## Fluxo de implantação
+`Diagnóstico comercial → Site institucional → Landing específica do serviço → GTM/GA4/Ads → QA de eventos → Campanha → CRM/leads → Agendamentos → Comparecimento → Venda/receita → Otimização`
 
-## Eventos disponíveis no dataLayer
-
-O formulário atual:
-- valida o nome;
-- dispara `whatsapp_form_submit` quando o usuário clica para continuar;
-- abre o WhatsApp com uma mensagem pré-preenchida.
-
-Esse evento representa **encaminhamento para o WhatsApp**, não comprova que a mensagem foi enviada, que houve conversa, agendamento ou venda. Não o trate como venda ou lead comercial confirmado. Prefira medir como interação/contato iniciado; a qualificação e os resultados posteriores devem ser registrados no CRM/planilha.
-
-O evento não envia nome, telefone ou dados clínicos ao Google. Não acrescente informações pessoais ou sensíveis aos parâmetros do dataLayer, URLs ou plataformas de anúncios.
-
-## Personalizar um cliente
-
-Edite somente `landing-anuncios/config.js`:
-
-- `companyName`
-- `logoPath`
-- `backgroundPath`
-- `whatsappDestination` (formato internacional, apenas dígitos, começando por 55)
-- `primaryColor`
-- `buttonColor`
-
-Revise também título, descrição, texto de privacidade, links e conteúdo da página. A política de privacidade e os avisos devem refletir o tratamento real de dados do cliente.
-
-## Checklist antes de publicar
-
-- [ ] Cópia/repositório do cliente separados do template mestre.
-- [ ] WhatsApp conferido e testado em celular.
-- [ ] Nome, logotipo, cores e conteúdo conferidos.
-- [ ] ID GTM do cliente inserido nos dois pontos do snippet.
-- [ ] Nenhum ID de outro cliente presente.
-- [ ] Preview do GTM identifica o contêiner correto.
-- [ ] Teste do formulário e encaminhamento ao WhatsApp realizado.
-- [ ] Evento `whatsapp_form_submit` aparece uma única vez no dataLayer.
-- [ ] Tags GA4/Google Ads configuradas e validadas, sem duplicidade.
-- [ ] Conversão do Google Ads diferencia clique/encaminhamento de lead confirmado.
-- [ ] Parâmetros de campanha testados; nenhum dado pessoal/sensível em URL/eventos.
-- [ ] Consentimento, privacidade e retenção avaliados conforme o caso.
-
-## Cliente piloto atual
-
-A página publicada para a Eko Clínica usa o contêiner `GTM-T3CRR3MD`:
-
-`https://ekoversobr.github.io/ekoversotemplatesite/landing-anuncios/`
-
-**Atenção:** este ID é exclusivo da implementação da Eko Clínica. Antes de copiar a landing para outro cliente, substitua-o pelo ID do contêiner daquele cliente.
+A conversão que importa não é o clique isolado: é o resultado comercial rastreável, com definição, evidência e atribuição.
