@@ -43,7 +43,8 @@
       return;
     }
 
-    const message = "Olá! Encontrei vocês e gostaria de mais informações.";
+    const template = config.whatsappMessageTemplate || "Olá! Encontrei vocês e gostaria de mais informações.";
+    const message = template.replaceAll("{name}", name);
     const whatsappUrl = "https://wa.me/" + destination + "?text=" + encodeURIComponent(message);
 
     // Evento técnico de encaminhamento. Não significa que a mensagem foi enviada,
