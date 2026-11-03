@@ -30,7 +30,7 @@ form.addEventListener("submit", (event) => {
     return;
   }
 
-  const message = "Olá! Encontrei vocês no Google e gostaria de mais informações. Pode me chamar de " + name + ".";
+  const message = "Olá! Encontrei vocês no Google, me chamo " + name + " e gostaria de mais informações." ;
 
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
