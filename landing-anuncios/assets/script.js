@@ -27,6 +27,14 @@
     try { sessionStorage.setItem("landing_attribution", JSON.stringify(attribution)); } catch (_) {}
   }
 
+  const nameField = form.querySelector("#lead-name");
+  if (nameField) {
+    nameField.addEventListener("input", () => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "form_start", form_name: "landing_page_ads" });
+    }, { once: true });
+  }
+
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     if (feedback) feedback.textContent = "";
