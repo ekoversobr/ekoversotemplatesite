@@ -1,4 +1,3 @@
-```javascript
 /*
  * Eko Verso Digital — site master v2
  * Mantém o menu, os links de WhatsApp e o formulário.
