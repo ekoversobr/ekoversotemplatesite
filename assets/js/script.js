@@ -10,7 +10,7 @@
  * O envio ao Apps Script também deve ser validado na planilha.
  */
 
-const EKO_CONFIG = {
+const EKO_CONFIG = window.EKO_CLIENT_CONFIG || {
   whatsappNumber: "",
   businessName: "Nome do Cliente",
   email: "",
@@ -36,6 +36,7 @@ function trackInteraction(eventName, params = {}) {
 ========================================= */
 
 document.querySelectorAll("[data-whatsapp-link]").forEach((link) => {
+  if (!EKO_CONFIG.whatsappNumber) return;
   const source =
     link.dataset.source ||
     link.dataset.cta ||
@@ -51,7 +52,6 @@ document.querySelectorAll("[data-whatsapp-link]").forEach((link) => {
 
   link.addEventListener("click", () => {
     trackInteraction("whatsapp_click", {
-      link_text: (link.textContent || "").trim().slice(0, 100),
       link_location: source,
       page_path: window.location.pathname
     });
