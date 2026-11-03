@@ -8,10 +8,10 @@ body{margin:0;min-height:100vh;font-family:Inter,Arial,sans-serif;color:var(--in
 .company-logo{display:block;width:auto;max-width:min(75%,290px);height:76px;object-fit:contain;margin:0 auto 8px}
 .company-name{margin:0 0 25px;text-align:center;color:var(--brand);font-size:clamp(20px,3vw,28px);line-height:1.15;font-weight:800;letter-spacing:-.6px}
 .field{margin:0 0 12px}
-label{display:block;margin:0 0 7px;color:#365783;font-size:14px;font-weight:600}
-input{width:100%;min-height:49px;padding:13px 15px;border:1px solid rgba(255,255,255,.4);border-radius:5px;outline:none;background:var(--field);color:white;font:14px Inter,Arial,sans-serif}
-input::placeholder{color:rgba(255,255,255,.72)}
-input:focus{box-shadow:0 0 0 3px rgba(102,197,229,.35);border-color:var(--button)}
+label{display:block;margin:0 0 7px;color:#365783;font-size:14px;font-weight:600;text-align:center}
+input{width:100%;min-height:49px;padding:13px 15px;border:1px solid #d5deea;border-radius:8px;outline:none;background:#fff;color:#18365e;font:14px Inter,Arial,sans-serif;text-align:center}
+input::placeholder{color:#8292a8}
+input:focus{box-shadow:0 0 0 3px rgba(37,211,102,.18);border-color:var(--button)}
 .submit-button{width:58px;height:52px;padding:12px;display:flex;align-items:center;justify-content:center;margin:0 auto;border:0;border-radius:9px;background:var(--button);color:white;cursor:pointer;transition:filter .15s,transform .15s}
 .whatsapp-icon{width:20px;height:20px;flex:0 0 20px}\n.submit-button:hover{filter:brightness(.96);transform:translateY(-1px)}
 .submit-button:focus-visible{outline:3px solid var(--brand);outline-offset:3px}
