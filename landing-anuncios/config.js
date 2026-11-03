@@ -5,5 +5,5 @@ window.LANDING_CONFIG = {
   backgroundPath: "assets/background-placeholder.svg",
   whatsappDestination: "5583996224306",
   primaryColor: "#174f9c",
-  buttonColor: "#66c5e5"
+  buttonColor: "#25D366"
 };
