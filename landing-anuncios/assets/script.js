@@ -27,6 +27,14 @@
     try { sessionStorage.setItem("landing_attribution", JSON.stringify(attribution)); } catch (_) {}
   }
 
+  const nameField = form.querySelector("#lead-name");
+  if (nameField) {
+    nameField.addEventListener("input", () => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "form_start", form_name: "landing_page_ads" });
+    }, { once: true });
+  }
+
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     if (feedback) feedback.textContent = "";
@@ -44,7 +52,7 @@
     }
 
     const template = config.whatsappMessageTemplate || "Olá! Encontrei vocês e gostaria de mais informações.";
-    const message = template.replaceAll("{name}", name);
+    const message = template.replaceAll("{name}", name).replaceAll("{service}", config.serviceName || "serviço");
     const whatsappUrl = "https://wa.me/" + destination + "?text=" + encodeURIComponent(message);
 
     // Evento técnico de encaminhamento. Não significa que a mensagem foi enviada,
@@ -52,7 +60,8 @@
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: "whatsapp_form_submit",
-      form_name: "landing_page_ads"
+      form_name: "landing_page_ads",
+      service_slug: String(config.serviceSlug || "").slice(0, 80)
     });
 
     window.location.assign(whatsappUrl);
