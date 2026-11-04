@@ -3,7 +3,7 @@ window.LANDING_CONFIG = {
   companyName: "Nome do Cliente",
   logoPath: "assets/logo-placeholder.svg",
   backgroundPath: "assets/background-placeholder.svg",
-  whatsappDestination: "",
+  whatsappDestination: "5583996224306",
   serviceSlug: "",
   whatsappMessageTemplate: "Olá! Vi o anúncio de {service} e gostaria de mais informações. Meu nome é {name}.",
   serviceName: "Nome do Serviço",
